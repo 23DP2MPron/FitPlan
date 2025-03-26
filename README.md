@@ -1,32 +1,34 @@
-# Healthy Lifestyle Assistant
+# Veselīga dzīvesveida asistents
 
-## Description  
-**Healthy Lifestyle Assistant** is a program designed to help users achieve their fitness and nutrition goals. It calculates daily caloric and macronutrient needs (**KCBU - calories, proteins, fats, and carbohydrates**) and generates a personalized workout plan based on individual parameters.
+## Apraksts  
+**Veselīga dzīvesveida palīgs** ir programma, kas izstrādāta, lai palīdzētu lietotājiem sasniegt fitnesa un uztura mērķus. Tā aprēķina dienas kaloriju un makroelementu vajadzības (**KCBU - kalorijas, olbaltumvielas, tauki un ogļhidrāti**) un ģenerē personalizētu treniņu plānu, pamatojoties uz individuāliem parametriem.
 
-## Features  
-- **User data input:**  
-  - **Gender**  
-  - **Height**  
-  - **Weight**  
-  - **Daily activity level**  
-  - **Training experience** (beginner, intermediate, advanced)  
-  - **Fitness goal** (weight gain, weight loss, or maintenance)  
+## Funkcijas  
+- **Uzīvotāja datu ievadīšana:**  
+  - **dzimums**  
+  - **augstums**  
+  - **Svars**  
+  - **Dienas aktivitātes līmenis**  
+  - **Treniņu pieredze** (iesācējs, vidēji pieredzējis, pieredzējis)  
+  - **Fitnesa mērķis** (svara pieaugums, svara zudums vai uzturēšana).  
 
-- **Personalized calculations:**  
-  - Determines **daily calorie intake** based on the user's goal  
-  - Calculates **macronutrient distribution**  
-  - Suggests a **workout plan** tailored to experience level and activity  
+- **Personalizēti aprēķini:**  
+  - Nosaka **dienā uzņemto kaloriju daudzumu**, pamatojoties uz lietotāja mērķi.  
+  - Aprēķina **makrouzturvielu sadalījumu**.  
+  - Iesaka **treniņu plānu**, kas pielāgots pieredzes līmenim un aktivitātei.  
 
-## How It Works  
-1. The user enters their personal details and selects their goal.  
-2. The program calculates the optimal daily **calorie intake** and **macronutrient ratios**.  
-3. Based on the user’s **experience and activity level**, the program generates a **workout plan**.  
-4. The user can follow the recommended diet and training plan to achieve their **desired results**.  
+## Kā tas darbojas  
+1. Lietotājs ievada savu personisko informāciju un izvēlas savu mērķi.  
+2. Programma aprēķina optimālo dienas **kaloriju devu** un **makrouzturvielu attiecību**.  
+3. Pamatojoties uz lietotāja **pieredzes un aktivitātes līmeni**, programma izveido **treniņu plānu**.  
+4. Lietotājs var ievērot ieteikto diētu un treniņu plānu, lai sasniegtu **vēlos rezultātus**.  
 
-## Usage  
-1. **Run the program**.  
-2. **Enter the requested information**.  
-3. **Get a customized nutrition and workout plan**.  
-4. **Follow the plan and track progress over time**.  
+## Lietošana  
+1. **Spiediet programmu**.  
+2. **Iesniedziet pieprasīto informāciju**.  
+3. **Gūstiet pielāgotu uztura un treniņu plānu**.  
+4. **Pildiet plānu un sekojiet līdzi progresam laika gaitā**.  
 
-This program helps users adopt a **structured approach** to a healthy lifestyle by providing **accurate nutritional guidance** and **effective workout plans**.
+Šī programma palīdz lietotājiem pieņemt **strukturētu pieeju** veselīgam dzīvesveidam, nodrošinot **precīzu
+
+Translated with DeepL.com (free version)
