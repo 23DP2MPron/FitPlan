@@ -269,6 +269,10 @@ header.scrolled {
     margin: 0 auto;
 }
 
+.calculator-text {
+    margin-left: 200px;
+}
+
 .form-group {
     margin-bottom: 20px;
 }
@@ -446,14 +450,9 @@ header.scrolled {
     margin-bottom: 40px;
 }
 
-.footer-logo, .footer-links, .footer-contact, .footer-social {
+.footer-links, .footer-contact, .footer-social {
     flex: 1;
     min-width: 200px;
-}
-
-.footer-logo p {
-    margin-top: 15px;
-    color: #ddd;
 }
 
 .footer-links h4, .footer-contact h4, .footer-social h4 {
@@ -623,6 +622,6 @@ header.scrolled {
         gap: 30px;
     }
     
-    .footer-logo, .footer-links, .footer-contact, .footer-social {
+    .footer-links, .footer-contact, .footer-social {
         width: 100%;
     }}
