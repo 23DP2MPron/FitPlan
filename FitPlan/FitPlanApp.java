@@ -13,7 +13,7 @@ public class FitPlanApp {
             184.0,           // Height: 184 cm
             100.0,           // Weight: 100 kg
             Gender.MALE,     // Gender: Male
-            Goal.MAINTAIN,   // Goal: Maintain weight
+            Goal.LOSE,   // Goal: Maintain weight
             ActivityLevel.HIGH // Activity Level: High
         );
 
