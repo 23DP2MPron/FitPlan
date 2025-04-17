@@ -3,6 +3,7 @@ package view;
 import model.Measurement;
 import model.User;
 import model.WeightEntry;
+import service.MacroCalculationService;
 
 import java.util.List;
 
@@ -104,7 +105,7 @@ public class ViewRenderer {
     }
 
     public void promptForGender() {
-        System.out.print("Enter gender number (1-3): ");
+        System.out.print("Enter gender number (1/2): ");
     }
 
     public void promptForActivityLevel() {
