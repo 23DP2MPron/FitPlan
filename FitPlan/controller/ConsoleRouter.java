@@ -20,9 +20,6 @@ public class ConsoleRouter {
     private User currentUser = null;
 
     public ConsoleRouter() {
-        // --- Dependency Injection Setup ---
-        // In a real app, use a framework (like Spring) or manual DI container.
-        // Here, we instantiate dependencies directly.
         Scanner scanner = new Scanner(System.in);
         this.inputHelper = new InputHelper(scanner);
         this.viewRenderer = new ViewRenderer();

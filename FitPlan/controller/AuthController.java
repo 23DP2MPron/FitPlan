@@ -1,6 +1,8 @@
 package controller;
 
 import model.Goal;
+import model.Gender;
+import model.ActivityLevel;
 import model.User;
 import service.UserService;
 import view.InputHelper;
@@ -84,9 +86,11 @@ public class AuthController {
         int age = inputHelper.promptInt("Enter your age:");
         double height = inputHelper.promptDouble("Enter your height (cm):");
         double weight = inputHelper.promptDouble("Enter your current weight (kg):");
+        Gender gender = inputHelper.promptGenderSelection();
+        ActivityLevel activityLevel = inputHelper.promptActivityLevelSelection();
         Goal goal = inputHelper.promptGoalSelection(); // Let user select goal
 
-        Optional<User> userOpt = userService.registerUser(username, password, name, age, height, weight, goal);
+        Optional<User> userOpt = userService.registerUser(username, password, name, age, height, weight, gender,activityLevel, goal);
         return userOpt.orElse(null);
     }
 }

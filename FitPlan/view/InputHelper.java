@@ -1,10 +1,11 @@
 package view;
 
 import model.Goal;
+import model.Gender;
+import model.ActivityLevel;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -122,6 +123,60 @@ public class InputHelper {
             }
         }
         return selectedGoal;
+    }
+
+    public Gender promptGenderSelection() {
+        Gender selectedGender = null;
+        while (selectedGender == null) {
+            System.out.println("Available genders:");
+            System.out.println("1. Male");
+            System.out.println("2. Female");
+            String input = promptString("Enter Gender number or name (1/2 or male/female):");
+            
+            // Handle selection by number
+            if (input.equals("1") || input.equalsIgnoreCase("male")) {
+                selectedGender = Gender.MALE;
+            } else if (input.equals("2") || input.equalsIgnoreCase("female")) {
+                selectedGender = Gender.FEMALE;
+            }
+            
+            if (selectedGender == null) {
+                System.out.println("Invalid gender selection. Please try again.");
+            }
+        }
+        return selectedGender;
+    }
+
+    public ActivityLevel promptActivityLevelSelection() {
+        ActivityLevel selectedLevel = null;
+        while (selectedLevel == null) {
+            System.out.println("Activity levels:");
+            System.out.println("1. Sedentary (little or no exercise)");
+            System.out.println("2. Light (light exercise 1-3 days/week)");
+            System.out.println("3. Moderate (moderate exercise 3-5 days/week)");
+            System.out.println("4. Active (hard exercise 6-7 days/week)");
+            System.out.println("5. Very Active (very hard exercise & physical job)");
+            
+            String input = promptString("Enter Activity level number or name (1-5):");
+            
+            // Handle selection by number or name
+            if (input.equals("1") || input.equalsIgnoreCase("sedentary")) {
+                selectedLevel = ActivityLevel.SEDENTARY;
+            } else if (input.equals("2") || input.equalsIgnoreCase("light")) {
+                selectedLevel = ActivityLevel.LIGHT;
+            } else if (input.equals("3") || input.equalsIgnoreCase("moderate")) {
+                selectedLevel = ActivityLevel.MODERATE;
+            } else if (input.equals("4") || input.equalsIgnoreCase("active")) {
+                selectedLevel = ActivityLevel.HIGH;
+            } else if (input.equals("5") || input.equalsIgnoreCase("very active") || input.equalsIgnoreCase("veryactive")) {
+                selectedLevel = ActivityLevel.VERY_HIGH;
+            }
+            
+            if (selectedLevel == null) {
+                System.out.println("Invalid activity level selection. Please try again.");
+            }
+        }
+        return selectedLevel;
     }
 
      // Utility to consume the leftover newline character
