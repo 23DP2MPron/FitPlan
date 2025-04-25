@@ -1,6 +1,7 @@
 import model.Gender;
 import service.WorkoutPlanService;
 import java.util.Scanner;
+import view.WorkoutPlanRenderer;
 
 public class FitPlanApp {
 
@@ -15,16 +16,21 @@ public class FitPlanApp {
         System.out.print("Enter your choice (1 or 2): ");
         int workoutChoice = scanner.nextInt();
 
-        // Create WorkoutPlanService instance
+        // Create WorkoutPlanService and WorkoutPlanRenderer instances
         WorkoutPlanService workoutService = new WorkoutPlanService();
+        WorkoutPlanRenderer renderer = new WorkoutPlanRenderer();
 
-        // Display the selected workout plan
-        if (workoutChoice == 1) {
-            workoutService.displayWorkoutPlan(Gender.MALE);
-        } else if (workoutChoice == 2) {
-            workoutService.displayWorkoutPlan(Gender.FEMALE);
-        } else {
-            System.out.println("Invalid choice. Please select 1 or 2.");
+        // Get and display the selected workout plan
+        try {
+            if (workoutChoice == 1) {
+                renderer.renderWorkoutPlan(workoutService.getWorkoutPlan(Gender.MALE));
+            } else if (workoutChoice == 2) {
+                renderer.renderWorkoutPlan(workoutService.getWorkoutPlan(Gender.FEMALE));
+            } else {
+                System.out.println("Invalid choice. Please select 1 or 2.");
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         }
 
         scanner.close();
