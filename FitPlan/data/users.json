@@ -1,0 +1,13 @@
+{
+  "Maxim ": {
+    "username": "Maxim ",
+    "password": "12345",
+    "name": "Maxim ",
+    "age": 18,
+    "height": 182.0,
+    "weight": 83.0,
+    "gender": "MALE",
+    "activityLevel": "MODERATE",
+    "currentGoal": "LOSE"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "Maksym ": {
+    "username": "Maksym ",
+    "password": "1234567890",
+    "name": "Maksym ",
+    "age": 17,
+    "height": 182.0,
+    "weight": 82.0,
+    "gender": "MALE",
+    "activityLevel": "LIGHT",
+    "currentGoal": "LOSE"
+  },
+  "Max ": {
+    "username": "Max ",
+    "password": "1234",
+    "name": "Maksym ",
+    "age": 18,
+    "height": 192.0,
+    "weight": 83.0,
+    "gender": "MALE",
+    "activityLevel": "MODERATE",
+    "currentGoal": "MAINTAIN"
+  }
+}
