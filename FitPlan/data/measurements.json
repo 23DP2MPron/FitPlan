@@ -1,3 +1,18 @@
 {
-  "Maxim ": []
+  "Maxim ": [],
+  "Maksym ": [
+    {
+      "date": "2025-04-28",
+      "measurementsCm": {
+        "Waist ": 76.0
+      }
+    },
+    {
+      "date": "2025-04-28",
+      "measurementsCm": {
+        "Chest": 80.0,
+        "Bicep L": 40.0
+      }
+    }
+  ]
 }

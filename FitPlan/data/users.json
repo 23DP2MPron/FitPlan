@@ -9,5 +9,16 @@
     "gender": "MALE",
     "activityLevel": "MODERATE",
     "currentGoal": "LOSE"
+  },
+  "Maksym ": {
+    "username": "Maksym ",
+    "password": "1234",
+    "name": "Maksym ",
+    "age": 17,
+    "height": 182.0,
+    "weight": 82.0,
+    "gender": "MALE",
+    "activityLevel": "MODERATE",
+    "currentGoal": "LOSE"
   }
 }
