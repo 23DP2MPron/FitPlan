@@ -1,13 +1,18 @@
 package FitPlan.controller;
 
+import FitPlan.model.Gender;
 import FitPlan.model.Goal;
 import FitPlan.model.Measurement;
 import FitPlan.model.User;
 import FitPlan.model.WeightEntry;
+import FitPlan.model.WorkoutPlan;
+import FitPlan.service.MacroCalculationService;
 import FitPlan.service.ProgressService;
 import FitPlan.service.UserService;
+import FitPlan.service.WorkoutPlanService;
 import FitPlan.view.InputHelper;
 import FitPlan.view.ViewRenderer;
+import FitPlan.view.WorkoutPlanRenderer;
 
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -19,23 +24,34 @@ public class MenuController {
     private final ProgressService progressService;
     private final InputHelper inputHelper;
     private final ViewRenderer viewRenderer;
+    private final MacroCalculationService macroCalculationService;
     private boolean userLoggedOut = false;
+    private boolean exitRequested = false; // Added field to track exit status
 
     public MenuController(UserService userService, ProgressService progressService, InputHelper inputHelper, ViewRenderer viewRenderer) {
         this.userService = userService;
         this.progressService = progressService;
         this.inputHelper = inputHelper;
         this.viewRenderer = viewRenderer;
+        this.macroCalculationService = new MacroCalculationService();
     }
 
+    /**
+     * Checks if exit was requested during menu navigation
+     * @return true if exit was requested, false otherwise
+     */
+    public boolean isExitRequested() {
+        return exitRequested;
+    }
 
     public void showMainMenu(User currentUser) {
         boolean stayInMenu = true;
         userLoggedOut = false; // Reset logout flag each time menu is shown
+        exitRequested = false; // Reset exit flag each time menu is shown
 
         while (stayInMenu && !userLoggedOut) {
             viewRenderer.displayMainMenu(currentUser);
-            int choice = inputHelper.promptInt("Enter your choice", 1, 5);
+            int choice = inputHelper.promptInt("Enter your choice", 1, 8); // Changed to 8 options to include Workout and Meal Plans
 
             switch (choice) {
                 case 1: // Track Progress
@@ -52,7 +68,15 @@ public class MenuController {
                      viewRenderer.displayUserProfile(currentUser);
                      inputHelper.waitForEnter();
                     break;
-                case 5: // Logout
+                case 5: // View Workout Plan
+                    handleViewWorkoutPlan(currentUser);
+                    inputHelper.waitForEnter();
+                    break;
+                case 6: // View Meal Plan
+                    handleViewMealPlan(currentUser);
+                    inputHelper.waitForEnter();
+                    break;
+                case 7: // Logout
                     viewRenderer.displayMessage("Logging out...");
                     userLoggedOut = true; // Signal logout to ConsoleRouter
                     stayInMenu = false; // Exit the main menu loop
@@ -174,6 +198,29 @@ public class MenuController {
         }
     }
 
+    /**
+     * Handles meal plan display using MacroCalculationService
+     */
+    private void handleViewMealPlan(User currentUser) {
+        viewRenderer.displayMessage("--- Personalized Meal Plan ---");
+        viewRenderer.displayMessage("Based on your profile data:");
+        viewRenderer.displayMessage("Height: " + currentUser.getHeight() + " cm");
+        viewRenderer.displayMessage("Weight: " + currentUser.getWeight() + " kg");
+        viewRenderer.displayMessage("Age: " + currentUser.getAge() + " years");
+        viewRenderer.displayMessage("Gender: " + currentUser.getGender());
+        viewRenderer.displayMessage("Activity Level: " + currentUser.getActivityLevel());
+        viewRenderer.displayMessage("Goal: " + currentUser.getGoal().getDescription());
+        viewRenderer.displayMessage("");
+        
+        try {
+            // Use the MacroCalculationService to calculate and display macros
+            macroCalculationService.calculateAndDisplayMacros(currentUser);
+            
+        } catch (Exception e) {
+            viewRenderer.displayError("Error generating meal plan: " + e.getMessage());
+        }
+    }
+
      // Method for ConsoleRouter to check if logout occurred
     public boolean isUserLoggedOut() {
         return userLoggedOut;
@@ -182,5 +229,32 @@ public class MenuController {
     // Reset the flag after ConsoleRouter acknowledges it
     public void resetLogoutFlag() {
         this.userLoggedOut = false;
+    }
+
+    private void handleViewWorkoutPlan(User currentUser) {
+        viewRenderer.displayMessage("--- Workout Plan ---");
+        try {
+            // Create workout plan service
+            WorkoutPlanService workoutPlanService = new WorkoutPlanService();
+            
+            // Get user's gender - make sure User class has this method
+            Gender gender = currentUser.getGender();
+            
+            // Call the correct method that exists in WorkoutPlanService
+            WorkoutPlan workoutPlan = workoutPlanService.getWorkoutPlan(gender);
+            
+            if (workoutPlan != null) {
+                // Create and use the WorkoutPlanRenderer to display the plan
+                WorkoutPlanRenderer workoutPlanRenderer = new WorkoutPlanRenderer();
+                workoutPlanRenderer.renderWorkoutPlan(workoutPlan);
+            } else {
+                viewRenderer.displayMessage("No workout plan found for your profile.");
+            }
+        } catch (IllegalArgumentException e) {
+            // Handle the specific exception from WorkoutPlanService (when gender is not supported)
+            viewRenderer.displayError("Could not create workout plan: " + e.getMessage());
+        } catch (Exception e) {
+            viewRenderer.displayError("Error loading workout plan: " + e.getMessage());
+        }
     }
 }

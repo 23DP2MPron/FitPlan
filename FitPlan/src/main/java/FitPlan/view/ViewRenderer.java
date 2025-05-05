@@ -45,7 +45,9 @@ public class ViewRenderer {
         System.out.println("2. View Progress History");
         System.out.println("3. Change Goal");
         System.out.println("4. View Profile");
-        System.out.println("5. Logout");
+        System.out.println("5. View Workout Plan");
+        System.out.println("6. View Meal Plan");
+        System.out.println("7. Logout");
         System.out.println("-------------------------");
     }
 
