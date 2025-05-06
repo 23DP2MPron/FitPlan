@@ -16,7 +16,7 @@ Below is the structure of the application, divided into packages with their resp
 │   ├── Exercise.java
 │   ├── WeightEntry.java
 │   ├── Measurement.java
-│   └── Reminder.java
+│   
 │
 ├── service/
 │   ├── UserService.java
@@ -32,7 +32,7 @@ Below is the structure of the application, divided into packages with their resp
 │   └── DatabaseManager.java
 │
 ├── view/
-│   ├── MainMenu.java
+│   ├── WorkoutPlanRenderer.java
 │   ├── ViewRenderer.java
 │   └── InputHelper.java
 │
@@ -98,7 +98,7 @@ This package deals with everything the user sees in the console.
 
 | Class          | Purpose                                      |
 |----------------|----------------------------------------------|
-| `MainMenu`     | Displays the main menu                      |
+| `WorkoutPlanRenderer`     | Displays the workout plan         |
 | `ViewRenderer` | Formats and prints information nicely       |
 | `InputHelper`  | Accepts and validates keyboard input        |
 
