@@ -63,15 +63,6 @@ FitPlan helps users achieve their fitness goals through personalized macronutrie
 
 ---
 
-### 💡 6. Smart Assistant and Motivation
-
-- 💬 Motivational messages on login:
-  - Example: “You skipped 3 workouts — don’t give up!”
-- 🔔 Notifications:
-  - Reminder to recalculate macronutrients if weight has changed significantly (e.g., more than 3 kg)
-- 🎯 Support for goal tracking and encouragement messages
-
-
 ## How It Works  
 1. The user enters their personal details and selects their goal.  
 2. The program calculates the optimal daily **calorie intake** and **macronutrient ratios**.  
