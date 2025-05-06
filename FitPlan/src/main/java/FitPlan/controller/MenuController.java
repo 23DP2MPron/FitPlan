@@ -51,7 +51,7 @@ public class MenuController {
 
         while (stayInMenu && !userLoggedOut) {
             viewRenderer.displayMainMenu(currentUser);
-            int choice = inputHelper.promptInt("Enter your choice", 1, 8); // Changed to 8 options to include Workout and Meal Plans
+            int choice = inputHelper.promptInt("Enter your choice", 1, 7); // Changed to 7 options to include Workout and Meal Plans
 
             switch (choice) {
                 case 1: // Track Progress
