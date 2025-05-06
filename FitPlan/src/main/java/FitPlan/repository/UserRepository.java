@@ -266,12 +266,7 @@ public class UserRepository {
         return deleted;
     }
     
-    /**
-     * Adds a weight entry for a user
-     * @param username The username
-     * @param entry The weight entry to add
-     * @return true if successful, false otherwise
-     */
+    
     public boolean addWeightEntry(String username, WeightEntry entry) {
         if (username == null || entry == null || !users.containsKey(username)) {
             return false;
@@ -304,11 +299,7 @@ public class UserRepository {
         return success;
     }
     
-    /**
-     * Gets the weight history for a user
-     * @param username The username
-     * @return List of weight entries, empty list if user not found
-     */
+    
     public List<WeightEntry> getWeightHistory(String username) {
         if (username == null || !users.containsKey(username)) {
             return new ArrayList<>();
@@ -317,12 +308,7 @@ public class UserRepository {
         return new ArrayList<>(weightHistories.getOrDefault(username, new ArrayList<>()));
     }
     
-    /**
-     * Adds a measurement for a user
-     * @param username The username
-     * @param measurement The measurement to add
-     * @return true if successful, false otherwise
-     */
+    
     public boolean addMeasurement(String username, Measurement measurement) {
         if (username == null || measurement == null || !users.containsKey(username)) {
             return false;
@@ -348,11 +334,7 @@ public class UserRepository {
         return saved;
     }
     
-    /**
-     * Gets the measurement history for a user
-     * @param username The username
-     * @return List of measurements, empty list if user not found
-     */
+
     public List<Measurement> getMeasurementHistory(String username) {
         if (username == null || !users.containsKey(username)) {
             return new ArrayList<>();
@@ -361,9 +343,7 @@ public class UserRepository {
         return new ArrayList<>(measurementHistories.getOrDefault(username, new ArrayList<>()));
     }
     
-    /**
-     * TypeAdapter for LocalDate to handle serialization/deserialization
-     */
+    
     private static class LocalDateAdapter extends TypeAdapter<LocalDate> {
         private final DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
         
