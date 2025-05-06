@@ -15,7 +15,7 @@ Below is the structure of the application, divided into packages with their resp
 │   ├── Workout.java
 │   ├── Exercise.java
 │   ├── WeightEntry.java
-│   ├── Measurement.java
+│   └── Measurement.java
 │   
 │
 ├── service/
